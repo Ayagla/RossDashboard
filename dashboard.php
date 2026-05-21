@@ -15,7 +15,7 @@ $currentPage = 'dashboard';
 
     <main class="dashboard-main">
         <div class="dashboard-top">
-            <span class="dashboard-user">Admin - a.manning</span>
+            <?php include __DIR__ . '/includes/admin-user.php'; ?>
             <span class="dashboard-sync">Last sync - 2 min ago</span>
         </div>
 
@@ -71,5 +71,6 @@ $currentPage = 'dashboard';
             </div>
         </section>
     </main>
+    <?php include __DIR__ . '/includes/admin-image-modal.php'; ?>
 </body>
 </html>

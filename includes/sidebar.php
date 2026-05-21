@@ -5,7 +5,7 @@ $navItems = [
     'assets'    => ['label' => 'Assets', 'href' => 'assets.php'],
     'vlans'     => ['label' => 'VLANs', 'href' => 'vlans.php'],
     'credentials' => ['label' => 'Credentials', 'href' => 'credentials.php'],
-    'audit'     => ['label' => 'Audit Logs', 'href' => '#'],
+    'audit'     => ['label' => 'Audit Logs', 'href' => 'audit-logs.php'],
 ];
 ?>
 <aside class="sidebar">

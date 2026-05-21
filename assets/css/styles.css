@@ -161,6 +161,77 @@ body {
     color: #000;
 }
 
+.dashboard-user-trigger {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dashboard-user-trigger:hover,
+.dashboard-user-trigger:focus-visible {
+    color: #000;
+    text-decoration: none;
+}
+
+.dashboard-user-trigger:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+body.admin-modal-open {
+    overflow: hidden;
+}
+
+.admin-image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.92);
+    padding: 1.5rem;
+}
+
+.admin-image-modal[hidden] {
+    display: none;
+}
+
+.admin-image-modal-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.admin-image-modal-close {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 1001;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid #fff;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.admin-image-modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
 .dashboard-sync {
     font-size: 0.8rem;
     color: #888;
@@ -401,6 +472,30 @@ body {
 
 .status-online {
     color: #080;
+    font-weight: 600;
+}
+
+/* Audit logs page */
+.audit-logs-wrap {
+    width: 100%;
+    border-top: 1px solid #000;
+}
+
+.audit-log-row {
+    display: grid;
+    grid-template-columns: 9rem 6.5rem 9rem 1fr;
+    column-gap: 1.5rem;
+    align-items: center;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #000;
+}
+
+.audit-logs-header {
+    font-weight: 600;
+}
+
+.audit-col-user {
     font-weight: 600;
 }
 
@@ -645,6 +740,12 @@ body {
     .credential-info-row {
         grid-template-columns: 1fr;
         row-gap: 0.25rem;
+    }
+
+    .audit-log-row {
+        grid-template-columns: 1fr;
+        row-gap: 0.25rem;
+        column-gap: 0;
     }
 
     .credentials-list-header .cred-col-toggle,
