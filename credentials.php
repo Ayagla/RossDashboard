@@ -31,8 +31,8 @@ $currentPage = 'credentials';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Admin</td>
+                    <tr class="credential-row-link">
+                        <td><a href="credential-detail.php?id=admin">Admin</a></td>
                         <td>Unifi/NAS/CCTV/Logs</td>
                         <td>3x / 30D</td>
                     </tr>
