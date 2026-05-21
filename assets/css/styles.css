@@ -404,17 +404,97 @@ body {
     font-weight: 600;
 }
 
-.credentials-table a {
-    color: #000;
+/* Credentials list with expandable rows */
+.credentials-list-wrap {
+    width: 100%;
+    border-top: 1px solid #000;
+    --cred-col-toggle: 1.25rem;
+    --cred-col-name: minmax(7rem, 1fr);
+    --cred-col-access: minmax(14rem, 2fr);
+    --cred-col-last: minmax(6rem, 1fr);
+    --cred-log-user: 6.5rem;
+    --cred-log-action: 11rem;
+    --cred-log-datetime: 8.5rem;
+    --cred-log-location: 1fr;
+    --cred-system-name: 11rem;
+    --cred-system-desc: 1fr;
+    --cred-info-label: 10rem;
+    --cred-assigned-user: 6.5rem;
+    --cred-assigned-date: 5rem;
+}
+
+.credentials-list-header,
+.credential-summary,
+.credential-aligned-row {
+    display: grid;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.credentials-list-header,
+.credential-summary {
+    grid-template-columns:
+        var(--cred-col-toggle)
+        var(--cred-col-name)
+        var(--cred-col-access)
+        var(--cred-col-last);
+    padding: 0.65rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.credentials-list-header {
     font-weight: 600;
-    text-decoration: underline;
+    border-bottom: 1px solid #000;
 }
 
-.credentials-table a:hover {
-    color: #8b1a1a;
+.credential-item {
+    border-bottom: 1px solid #000;
 }
 
-/* Credential detail page */
+.credential-summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.credential-summary::-webkit-details-marker {
+    display: none;
+}
+
+.cred-col-toggle {
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.credential-item[open] .credential-toggle {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.credential-summary-name {
+    font-weight: 600;
+}
+
+.cred-col-access,
+.credential-summary-access {
+    word-break: break-word;
+}
+
+.credential-summary:hover {
+    background-color: #f9f9f9;
+}
+
+.credential-panel {
+    padding: 0.75rem 0.75rem 1.25rem 3rem;
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+}
+
+.credential-panel .credential-detail > .credential-section-label:first-of-type {
+    margin-top: 0.75rem;
+}
+
+/* Credential detail panels */
 .credential-detail {
     display: flex;
     flex-direction: column;
@@ -446,29 +526,53 @@ body {
     list-style: none;
 }
 
-.credential-systems-list li {
+.credential-systems-list li,
+.credential-access-logs li,
+.credential-assigned-list li {
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
 
-.credential-systems-list li:last-child {
+.credential-systems-list li:last-child,
+.credential-access-logs li:last-child,
+.credential-assigned-list li:last-child {
     margin-bottom: 0;
 }
 
-.credential-access-logs li {
-    display: grid;
-    grid-template-columns: 6rem 11rem 8rem 1fr;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+.credential-systems-list .credential-aligned-row {
+    grid-template-columns: var(--cred-system-name) var(--cred-system-desc);
 }
 
-.credential-access-logs li:last-child {
-    margin-bottom: 0;
-}
-
-.log-user {
+.system-name {
     font-weight: 600;
+}
+
+.credential-access-logs .credential-aligned-row {
+    grid-template-columns:
+        var(--cred-log-user)
+        var(--cred-log-action)
+        var(--cred-log-datetime)
+        var(--cred-log-location);
+}
+
+.credential-access-logs-header {
+    font-weight: 600;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.credential-access-logs-header span {
+    font-size: 0.8rem;
+}
+
+.log-user,
+.assigned-user {
+    font-weight: 600;
+}
+
+.credential-assigned-row {
+    grid-template-columns: var(--cred-assigned-user) var(--cred-assigned-date);
 }
 
 .credential-detail-grid {
@@ -483,10 +587,12 @@ body {
 }
 
 .credential-info-row {
-    display: flex;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: var(--cred-info-label) 1fr;
+    column-gap: 1rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    align-items: baseline;
 }
 
 .credential-info-row:last-child {
@@ -496,37 +602,10 @@ body {
 .credential-info-row dt {
     margin: 0;
     font-weight: 600;
-    min-width: 10rem;
 }
 
 .credential-info-row dd {
     margin: 0;
-}
-
-.credential-assigned-list li {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.credential-assigned-list li:last-child {
-    margin-bottom: 0;
-}
-
-.credential-assigned-list span {
-    font-weight: 600;
-}
-
-.credential-back {
-    margin: 1.5rem 0 0;
-    font-size: 0.9rem;
-}
-
-.credential-back a {
-    color: #000;
-}
-
-.credential-back a:hover {
-    color: #8b1a1a;
 }
 
 @media (max-width: 900px) {
@@ -547,8 +626,30 @@ body {
         width: 100%;
     }
 
-    .credential-access-logs li {
+    .credentials-list-wrap {
+        --cred-col-toggle: 1.25rem;
+        --cred-col-name: 1fr;
+        --cred-col-access: 1fr;
+        --cred-col-last: 1fr;
+        --cred-system-name: 1fr;
+        --cred-log-user: 1fr;
+        --cred-log-action: 1fr;
+        --cred-log-datetime: 1fr;
+        --cred-assigned-user: 1fr;
+        --cred-info-label: 1fr;
+    }
+
+    .credentials-list-header,
+    .credential-summary,
+    .credential-aligned-row,
+    .credential-info-row {
         grid-template-columns: 1fr;
+        row-gap: 0.25rem;
+    }
+
+    .credentials-list-header .cred-col-toggle,
+    .credential-summary .cred-col-toggle {
+        display: none;
     }
 
     .credential-detail-grid {
