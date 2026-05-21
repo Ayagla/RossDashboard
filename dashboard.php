@@ -1,5 +1,6 @@
 <?php
 // Dashboard UI and network stats will be added here later.
+$currentPage = 'dashboard';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +11,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="dashboard-layout">
-    <aside class="sidebar">
-        <h2 class="sidebar-title">Navigate</h2>
-        <nav class="sidebar-nav">
-            <a href="dashboard.php" class="sidebar-link active">Dashboard</a>
-            <a href="#" class="sidebar-link">Assets</a>
-            <a href="#" class="sidebar-link">VLANs</a>
-            <a href="#" class="sidebar-link">Credentials</a>
-            <a href="#" class="sidebar-link">Audit Logs</a>
-        </nav>
-    </aside>
+    <?php include __DIR__ . '/includes/sidebar.php'; ?>
 
     <main class="dashboard-main">
         <div class="dashboard-top">

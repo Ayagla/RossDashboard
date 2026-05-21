@@ -317,6 +317,85 @@ body {
     font-weight: 600;
 }
 
+/* Assets page */
+.page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-header-row .dashboard-heading {
+    margin-bottom: 0;
+}
+
+.assets-search {
+    width: 180px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+.assets-search:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 1px;
+}
+
+.assets-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.assets-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.assets-table th,
+.assets-table td {
+    padding: 0.65rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #000;
+}
+
+.assets-table th {
+    font-weight: 600;
+    color: #000;
+}
+
+.assets-table tbody tr:last-child td {
+    border-bottom: 1px solid #000;
+}
+
+.vlan-text.vlan-admin {
+    color: #c00;
+    font-weight: 600;
+}
+
+.vlan-text.vlan-guest {
+    color: #06c;
+    font-weight: 600;
+}
+
+.vlan-text.vlan-cctv {
+    color: #080;
+    font-weight: 600;
+}
+
+.vlan-text.vlan-events {
+    color: #ca0;
+    font-weight: 600;
+}
+
+.status-online {
+    color: #080;
+    font-weight: 600;
+}
+
 @media (max-width: 900px) {
     .stat-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -324,6 +403,15 @@ body {
 
     .dashboard-panels {
         grid-template-columns: 1fr;
+    }
+
+    .page-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .assets-search {
+        width: 100%;
     }
 }
 
