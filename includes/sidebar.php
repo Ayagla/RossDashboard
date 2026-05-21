@@ -3,7 +3,7 @@ $currentPage = $currentPage ?? 'dashboard';
 $navItems = [
     'dashboard' => ['label' => 'Dashboard', 'href' => 'dashboard.php'],
     'assets'    => ['label' => 'Assets', 'href' => 'assets.php'],
-    'vlans'     => ['label' => 'VLANs', 'href' => '#'],
+    'vlans'     => ['label' => 'VLANs', 'href' => 'vlans.php'],
     'credentials' => ['label' => 'Credentials', 'href' => 'credentials.php'],
     'audit'     => ['label' => 'Audit Logs', 'href' => '#'],
 ];

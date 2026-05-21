@@ -326,8 +326,16 @@ body {
     margin-bottom: 1rem;
 }
 
-.page-header-row .dashboard-heading {
+.page-header-row .dashboard-heading,
+.page-header-row .vlan-heading {
     margin-bottom: 0;
+}
+
+.vlan-heading {
+    margin: 0 0 1rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #c00;
 }
 
 .assets-search {
