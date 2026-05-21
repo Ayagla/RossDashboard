@@ -95,3 +95,250 @@ body {
     outline: 2px solid #000;
     outline-offset: 2px;
 }
+
+/* Dashboard layout */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    background-color: #f5f0e8;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar-title {
+    margin: 0 0 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.95rem;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-link.active {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 1.25rem 2rem 2rem;
+    overflow-x: auto;
+}
+
+.dashboard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.35rem;
+}
+
+.dashboard-user {
+    font-size: 0.8rem;
+    color: #000;
+}
+
+.dashboard-sync {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.dashboard-heading {
+    margin: 0 0 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background-color: #e8e8e8;
+    border: 1px solid #bbb;
+    padding: 1rem 1.25rem;
+    text-align: center;
+}
+
+.stat-card-title {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.stat-card-value {
+    margin: 0 0 0.35rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+}
+
+.stat-card-sub {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+.dashboard-panels {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1rem;
+    min-height: 320px;
+}
+
+.panel {
+    background-color: #e8e8e8;
+    border: 1px solid #bbb;
+    padding: 1.25rem;
+}
+
+.network-diagram-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.network-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    height: 280px;
+}
+
+.network-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.network-node {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #333;
+    z-index: 1;
+}
+
+.core-node {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 90px;
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.vlan-admin {
+    top: 0;
+    left: 0;
+    border-color: #c00;
+}
+
+.vlan-guest {
+    top: 0;
+    right: 0;
+    border-color: #06c;
+}
+
+.vlan-cctv {
+    bottom: 0;
+    left: 0;
+    border-color: #080;
+}
+
+.vlan-events {
+    bottom: 0;
+    right: 0;
+    border-color: #ca0;
+}
+
+.activity-panel .panel-title {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.activity-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.activity-list li {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: #000;
+    line-height: 1.4;
+}
+
+.activity-time {
+    display: inline-block;
+    min-width: 3rem;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .stat-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-panels {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .stat-cards {
+        grid-template-columns: 1fr;
+    }
+}
